@@ -16,11 +16,11 @@ RUN URL=https://github.com/uroni/hs5/releases/download/${VERSION} && \
     esac \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
-    && apt-get install -y wget \
+    && apt-get install -y wget xz-utils \
     && wget -q "$URL" -O /usr/bin/hs5.xz \
-    && apt-get remove -y wget \
-    && apt-get autoremove -y \
     && xz -d /usr/bin/hs5.xz \
+    && apt-get remove -y wget xz-utils \
+    && apt-get autoremove -y \
     && chmod +x /usr/bin/hs5 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
