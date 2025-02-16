@@ -4,8 +4,8 @@ FROM debian:${DEBIAN}
 ARG DEBIAN=bookworm
 ARG VERSION=0.1.1
 ARG TARGETPLATFORM
-
-COPY entrypoint.sh /usr/bin/
+ARG UID=1000
+ARG GID=1000
 
 RUN URL=https://github.com/uroni/hs5/releases/download/{VERSION} && \
     case ${TARGETPLATFORM} in \
@@ -23,7 +23,12 @@ RUN URL=https://github.com/uroni/hs5/releases/download/{VERSION} && \
     && xz -d /usr/bin/hs5.xz \
     && chmod +x /usr/bin/hs5 \
     && apt-get clean \
-    && rm -rf /var/lib/apt/lists/*
+    && rm -rf /var/lib/apt/lists/* \
+    && useradd -m hs5 -u $UID -g $GID
+
+USER hs5
+
+WORKDIR /home/hs5
 
 EXPOSE 80
 
