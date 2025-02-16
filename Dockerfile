@@ -24,7 +24,7 @@ RUN URL=https://github.com/uroni/hs5/releases/download/${VERSION} && \
     && chmod +x /usr/bin/hs5 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
-    && groupadd -g $GID hs5
+    && groupadd -g $GID hs5 \
     && useradd -m hs5 -u $UID -g $GID
 
 USER hs5
