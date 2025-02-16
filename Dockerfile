@@ -7,7 +7,7 @@ ARG TARGETPLATFORM
 ARG UID=1000
 ARG GID=1000
 
-RUN URL=https://github.com/uroni/hs5/releases/download/{VERSION} && \
+RUN URL=https://github.com/uroni/hs5/releases/download/${VERSION} && \
     case ${TARGETPLATFORM} in \
          "linux/amd64")  URL=$URL/hs5.xz  ;; \
          "linux/arm64")  URL=$URL/hs5-todo.xz  ;; \
