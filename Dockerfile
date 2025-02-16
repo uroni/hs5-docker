@@ -20,8 +20,8 @@ RUN URL=https://github.com/uroni/hs5/releases/download/{VERSION} && \
     && wget -q "$URL" -O /usr/bin/hs5.xz \
     && apt-get remove -y wget \
     && apt-get autoremove -y \
-    && xz -d /usr/bin/hs5.xz
-    && chmod +x /usr/bin/hs5
+    && xz -d /usr/bin/hs5.xz \
+    && chmod +x /usr/bin/hs5 \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
