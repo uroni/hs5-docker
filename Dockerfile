@@ -23,7 +23,10 @@ RUN URL=https://github.com/uroni/hs5/releases/download/${VERSION} && \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* \
     && groupadd -g $GID hs5 \
-    && useradd -m hs5 -u $UID -g $GID
+    && useradd -m hs5 -u $UID -g $GID \
+    && mkdir /data && mkdir /metadata \
+    && chown hs5:hs5 /data \
+    && chown hs5:hs5 /metadata
 
 USER hs5
 
