@@ -8,9 +8,7 @@ ARG GID=1000
 RUN URL=https://github.com/uroni/hs5/releases/download/${VERSION} && \
     case ${TARGETPLATFORM} in \
          "linux/amd64")  URL=$URL/hs5.xz  ;; \
-         "linux/arm64")  URL=$URL/hs5-todo.xz  ;; \
-         "linux/arm/v7") URL=$URL/hs5-todo.xz  ;; \
-         "linux/386" | "linux/i386")   URL=$URL/hs5-todo.xz   ;; \
+         "linux/arm64")  URL=$URL/hs5-arm64.xz  ;; \
     esac \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
