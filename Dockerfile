@@ -32,8 +32,8 @@ WORKDIR /home/hs5
 
 EXPOSE 80
 
-ENV DATA_PATH="/data"
-ENV METADATA_PATH="/metadata"
+ENV HS5_DATA_PATH="/data"
+ENV HS5_METADATA_PATH="/metadata"
 
 VOLUME [ "/data", "/metadata"]
 ENTRYPOINT ["/usr/bin/hs5"]
