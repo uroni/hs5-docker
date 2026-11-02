@@ -1,14 +1,14 @@
 FROM ubuntu:22.04
 
-ARG VERSION=1.3.0
+ARG VERSION=1.3.1
 ARG TARGETPLATFORM
 ARG UID=1000
 ARG GID=1000
 
 RUN URL=https://github.com/uroni/hs5/releases/download/${VERSION} && \
     case ${TARGETPLATFORM} in \
-         "linux/amd64")  URL=$URL/hs5.xz  ;; \
-         "linux/arm64")  URL=$URL/hs5-arm64.xz  ;; \
+         "linux/amd64")  URL=$URL/hs5-amd64-glibc.xz  ;; \
+         "linux/arm64")  URL=$URL/hs5-arm64-glibc.xz  ;; \
     esac \
     && export DEBIAN_FRONTEND=noninteractive \
     && apt-get update \
